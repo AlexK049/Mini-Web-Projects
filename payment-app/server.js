@@ -17,15 +17,6 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const storage = multer.diskStorage({
-    destination: './static/uploads/',
-    filename: (_, file, cb) => {
-        cb(null, file.originalname);
-    }
-});
-
-const upload = multer({ storage: storage });
-
 const app = express();
 const PORT = process.env.PORT;
 
@@ -33,6 +24,15 @@ const html_path = __dirname + '/templates/';
 
 app.use(express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: true }));
+
+const storage = multer.diskStorage({
+    destination: '/uploads/',
+    filename: (_, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 app.get('/', (req, res) => {
     res.sendFile(html_path + "form.html");

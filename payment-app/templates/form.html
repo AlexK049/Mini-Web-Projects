@@ -28,10 +28,12 @@
             <div class="input-group-y">
                 <label for="sender-first-name">First Name</label>
                 <input id="sender-first-name" name="sender-first-name" type="text" placeholder="First Name">
+                <div class="error-message">required</div>
             </div>
             <div class="input-group-y">
                 <label for="sender-last-name">Last Name</label>
                 <input id="sender-last-name" name="sender-last-name" type="text" placeholder="Last Name">
+                <div class="error-message">required</div>
             </div>
             <button class="page-switch-button next-button">Next</button>
         </div>
@@ -41,14 +43,17 @@
             <div class="input-group-y">
                 <label for="recipient-first-name">First Name</label>
                 <input id="recipient-first-name" name="recipient-first-name" type="text" placeholder="First Name">
+                <div class="error-message">required</div>
             </div>
             <div class="input-group-y">
                 <label for="recipient-last-name">Last Name</label>
                 <input id="recipient-last-name" name="recipient-last-name" type="text" placeholder="First Name">
+                <div class="error-message">required</div>
             </div>
             <div class="input-group-y" id="message-group">
                 <label for="message">Message</label>
                 <textarea id="message" name="message" placeholder="enter message here..." rows="1"></textarea>
+                <div class="error-message">required. must be 10 or more characters</div>
             </div>
 
             <div id="notify-area">
@@ -57,11 +62,13 @@
                     <input type="checkbox" id="email" name="notify-method" value="email">
                     <label for="email">Email</label>
                     <input type="text" id="sender-email" name="sender-email" placeholder="Email">
+                    <div class="error-message">required</div>
                 </div>
                 <div class="input-group-x">
                     <input type="checkbox" id="sms" name="notify-method" value="sms">
                     <label for="sms">SMS</label><br>
                     <input type="text" id="sender-number" name="sender-number" placeholder="Phone Number">
+                    <div class="error-message">required</div>
                 </div>
                 <div class="input-group-x">
                     <input type="checkbox" id="do-not-notify" name="notify-method" value="do-not-notify">
@@ -87,18 +94,22 @@
             <div class="input-group-y" id="card-number-group">
                 <label for="card-number">Card Number</label>
                 <input id="card-number" name="card-number" type="text">
+                <div class="error-message">required. must be in the format XXXX-XXXX-XXXX-XXXX</div>
             </div>
             <div class="input-group-y">
                 <label for="expiration">Expiration</label>
                 <input id="expiration" name="expiration" type="date">
+                <div class="error-message">required. card must not be expired</div>
             </div>
             <div class="input-group-y">
                 <label for="ccv">CCV</label>
                 <input id="ccv" name="ccv" type="password">
+                <div class="error-message">3-4 digits required</div>
             </div>
             <div class="input-group-y">
                 <label for="amount">Amount</label>
                 <input id="amount" name="amount" type="text">
+                <div class="error-message">required</div>
             </div>
             <div id="terms-group" class="input-group-x">
                 <input id="agree" name="agree" type="checkbox">

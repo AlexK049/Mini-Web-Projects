@@ -75,7 +75,7 @@ body {
     gap: 20px;
 }
 
-.sender-details > h1 {
+.sender-details>h1 {
     grid-area: header;
     text-align: center;
 }
@@ -115,7 +115,7 @@ body {
     grid-area: last-name;
 }
 
-.sender-details > .next-button {
+.sender-details>.next-button {
     grid-area: next;
 }
 
@@ -133,7 +133,7 @@ body {
     gap: 10px;
 }
 
-.recipient-details > h1 {
+.recipient-details>h1 {
     grid-area: header;
     text-align: center;
 }
@@ -145,20 +145,21 @@ body {
     gap: 10px;
 }
 
-#notify-area > h2 {
+#notify-area>h2 {
     margin: 0;
     margin-top: 10px;
 }
 
-.recipient-details input[name="sender-email"], input[name="sender-number"] {
+.recipient-details input[name="sender-email"],
+input[name="sender-number"] {
     display: none;
 }
 
-.recipient-details input[type="checkbox"]:checked ~ input[name="sender-email"] {
+.recipient-details input[type="checkbox"]:checked~input[name="sender-email"] {
     display: block;
 }
 
-.recipient-details input[type="checkbox"]:checked ~ input[name="sender-number"] {
+.recipient-details input[type="checkbox"]:checked~input[name="sender-number"] {
     display: block;
 }
 
@@ -179,18 +180,18 @@ body {
     grid-area: number;
 }
 
-.recipient-details > .back-button {
+.recipient-details>.back-button {
     grid-area: back;
 }
 
-.recipient-details > .next-button {
+.recipient-details>.next-button {
     grid-area: next;
 }
 
 /*******************************************
  * PAYMENT DETAILS PAGE
  *******************************************/
- .payment-details {
+.payment-details {
     display: grid;
     grid-template-areas:
         "header header header"
@@ -231,11 +232,11 @@ body {
     grid-area: terms;
 }
 
-.payment-details > .back-button {
+.payment-details>.back-button {
     grid-area: back;
 }
 
-.payment-details > .submit-button {
+.payment-details>.submit-button {
     grid-area: submit;
 }
 
@@ -292,5 +293,17 @@ input {
 
 .error {
     /* idk how else to make this border color have a higher specificity than the one specified in the element selector */
-    border: 2px solid red !important; 
+    border: 2px solid red !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+    display: none;
+    font-style: italic;
+}
+
+.error+.error-message {
+    display: block;
 }
