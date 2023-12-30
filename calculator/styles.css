@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#calculator {
+    padding: 20px;
+    background-color: #4562d9;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    /*
+     * Applied some principles from the following link to make the calculator
+     * look more 3d:
+     * https://dev.to/ryandsouza13/creating-a-fake-3d-effect-in-css-using-a-single-div-17a
+     */
+     background-image: linear-gradient(to bottom, #4562d9, #3456b8);
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+     border: 2px solid #3456b8;
+}
+
+/* calculator screen area styles */
+#calculatorScreen {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#clearHistoryBtn {
+    background-color: #fff;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    visibility: hidden;
+}
+  
+#clearHistoryBtn:hover {
+    background-color: #f5f5f5;
+    color: #C00;
+    border-color: #ccc
+}
+
+#historyList {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow-y: hidden;
+}
+
+#historyList:hover {
+    overflow-y: auto;
+}
+
+#historyList li {
+    border-bottom: 1px solid #ccc;
+    padding: 3px
+}
+
+#historyList li:hover {
+    background-color: #f5f5f5;
+}
+
+#inputDisplay {
+    font-size: 20px;
+    text-align: right;
+    padding: 10px;
+    cursor: default;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+/* calculator input area styles */
+#calculatorInput {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
+
+#calculatorInput > button {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+    margin: 5px;
+    cursor: pointer;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.operatorSelected {
+    background-color: rgba(120, 120, 120, 0.7);
+    transition: 0.3s;
+}

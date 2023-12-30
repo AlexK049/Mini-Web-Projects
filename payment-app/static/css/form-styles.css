@@ -1,0 +1,296 @@
+body {
+    padding: 40px;
+}
+
+/*******************************************
+ * PROGRESS BAR
+ *******************************************/
+#progress-bar {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 40vw;
+}
+
+.connecting-bar {
+    position: absolute;
+    z-index: -1;
+    background-color: var(--gray5);
+    border: 1px solid var(--gray3);
+    width: 50%;
+    height: 10px;
+    border-radius: 20px;
+    transition: var(--page-transition-time);
+}
+
+.connecting-bar-1 {
+    left: 0;
+}
+
+.connecting-bar-2 {
+    right: 0;
+}
+
+.progress-step {
+    border-radius: 15px;
+    height: 30px;
+    width: 30px;
+    background-color: var(--gray5);
+    border: 1px solid var(--gray3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--page-transition-time);
+}
+
+/* .progress-step:hover {
+    filter: brightness(0.9);
+    cursor: pointer;
+} */
+
+.progress-step-active {
+    background-color: var(--gray3);
+}
+
+.progress-step-done {
+    background-color: var(--accent-blue);
+    border: 0px;
+    color: white;
+}
+
+/*******************************************
+ * SENDER DETAILS PAGE
+ *******************************************/
+.sender-details {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "preview-image preview-image"
+        "preview-image preview-image"
+        "image-upload image-upload"
+        "first-name last-name"
+        ". next";
+    gap: 20px;
+}
+
+.sender-details > h1 {
+    grid-area: header;
+    text-align: center;
+}
+
+#preview-image-border {
+    grid-area: preview-image;
+    border: 2px dashed var(--gray0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+    padding: 20px;
+}
+
+#preview-image {
+    max-height: 100px;
+}
+
+#image-upload {
+    grid-area: image-upload;
+}
+
+.sender-details label[for="sender-first-name"] {
+    grid-area: first-name;
+}
+
+#sender-first-name {
+    grid-area: first-name;
+}
+
+.sender-details label[for="sender-last-name"] {
+    grid-area: last-name;
+}
+
+#sender-last-name {
+    grid-area: last-name;
+}
+
+.sender-details > .next-button {
+    grid-area: next;
+}
+
+/*******************************************
+ * RECIPIENT DETAILS PAGE
+ *******************************************/
+.recipient-details {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "first-name last-name"
+        "message message"
+        "notify notify"
+        "back next";
+    gap: 10px;
+}
+
+.recipient-details > h1 {
+    grid-area: header;
+    text-align: center;
+}
+
+#notify-area {
+    grid-area: notify;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#notify-area > h2 {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.recipient-details input[name="sender-email"], input[name="sender-number"] {
+    display: none;
+}
+
+.recipient-details input[type="checkbox"]:checked ~ input[name="sender-email"] {
+    display: block;
+}
+
+.recipient-details input[type="checkbox"]:checked ~ input[name="sender-number"] {
+    display: block;
+}
+
+#message-group {
+    grid-area: message;
+}
+
+#message {
+    resize: vertical;
+    min-height: 20px;
+}
+
+#sender-email {
+    grid-area: email;
+}
+
+#sender-number {
+    grid-area: number;
+}
+
+.recipient-details > .back-button {
+    grid-area: back;
+}
+
+.recipient-details > .next-button {
+    grid-area: next;
+}
+
+/*******************************************
+ * PAYMENT DETAILS PAGE
+ *******************************************/
+ .payment-details {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "type number number"
+        "expiration ccv amount"
+        "terms terms terms"
+        "back . submit";
+    gap: 10px;
+}
+
+.payment-details h1 {
+    grid-area: header;
+    text-align: center;
+}
+
+#card-type {
+    grid-area: type;
+    height: 26px;
+}
+
+#card-number-group {
+    grid-area: number;
+}
+
+#expiration {
+    grid-area: expiration;
+}
+
+#ccv {
+    grid-area: ccv;
+}
+
+#amount {
+    grid-area: amount;
+}
+
+#terms-group {
+    grid-area: terms;
+}
+
+.payment-details > .back-button {
+    grid-area: back;
+}
+
+.payment-details > .submit-button {
+    grid-area: submit;
+}
+
+/*******************************************
+ * BUTTONS
+ *******************************************/
+.submit-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--accent-blue);
+}
+
+.submit-button:hover {
+    filter: brightness(0.9);
+}
+
+/*******************************************
+ * GENERAL CLASSES
+ *******************************************/
+input {
+    background-color: white;
+    border: 1px solid var(--gray1);
+    padding: 5px;
+}
+
+.form-page {
+    background: var(--gray5);
+    margin: 10px;
+    padding: 10px 50px 30px 50px;
+    border-radius: 20px;
+    transition: 0.3s;
+    min-width: 450px;
+}
+
+.inactive-form-page {
+    display: none;
+}
+
+.input-group-y {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group-x {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.error {
+    /* idk how else to make this border color have a higher specificity than the one specified in the element selector */
+    border: 2px solid red !important; 
+}

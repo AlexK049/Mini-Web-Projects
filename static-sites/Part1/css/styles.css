@@ -1,0 +1,179 @@
+/* standard colors */
+:root {
+    /* official chelsea blue */
+    --chelsea-blue: #034694;
+    --subtext-color: rgb(70, 70, 70)
+}
+  
+/* universal selectors */
+body {
+    margin: 0;
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+}
+
+header {
+    padding: 5px 10px 5px 10px;
+    background: var(--chelsea-blue);
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+header img {
+    height: 10vh;
+    padding: 5px;
+}
+
+header p {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+menu {
+    list-style-type: none;
+    background: var(--chelsea-blue);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+
+menu > li {
+    display: inline;
+    flex-grow: 1;
+    text-align: center;
+}
+
+menu > li:hover {
+    background: lightgrey;
+    color: var(--chelsea-blue);
+}
+
+menu > li > a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+main {
+    border-radius: 20px;
+    width: 66%;
+    margin: 20px auto;
+    background-color: rgba(200, 200, 200, 0.6);
+
+    min-height: 60vh;
+    position: relative;
+    z-index: 2; /* Set a higher z-index to place it above images */
+    padding: 20px;
+    max-width: 850px;
+    min-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main > * {
+    margin: 10px;
+}
+
+article {
+    background: rgb(247, 246, 246);
+    border-radius: 5px;
+    padding: 10px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    max-height: 300px;
+
+    position: static;
+}
+
+article > h3 {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 40px;
+}
+
+article > p {
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--subtext-color);
+    margin: 0;
+}
+
+article > figure {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    margin: 0;
+    margin-left: 20px;
+    text-align: center;
+}
+
+article > figure > img {
+    max-height: 200px;
+}
+
+article > figure > figcaption {
+    color: var(--subtext-color);
+    text-align: center;
+}
+
+
+/* image special styling  */
+/* white image foreground source: https://stackoverflow.com/questions/24224112/css-filter-make-color-image-with-transparency-white */
+.white-foreground-img {
+    filter: brightness(0) invert(1);
+}
+
+.bottom-right {
+    position: fixed; 
+    bottom: 0; 
+    right: 0;
+}
+
+.bottom-left {
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+}
+
+/* header horizontal rule */
+.header-separator {
+    margin: auto;
+    width: 85%;
+    text-align: center;
+}
+
+.header-separator-container {
+    background: var(--chelsea-blue);
+}
+
+/* other */
+.main-content-header {
+    text-align: center;
+}
+
+.top-fixed-content {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.more-btn {
+    display: inline;
+    background: var(--chelsea-blue);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.more-btn img {
+    max-height: 10px;
+}

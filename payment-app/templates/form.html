@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Your Friends</title>
+    <link href="css/default-styles.css" rel="stylesheet">
+    <link href="css/form-styles.css" rel="stylesheet">
+    <script type="module" defer src="js/form.js"></script>
+</head>
+
+<body>
+    <div id="progress-bar">
+        <div class="progress-step">1</div>
+        <div class="connecting-bar connecting-bar-1"></div>
+        <div class="progress-step">2</div>
+        <div class="connecting-bar connecting-bar-2"></div>
+        <div class="progress-step">3</div>
+    </div>
+    <form method="post" enctype="multipart/form-data" action="send">
+        <div class="form-page sender-details">
+            <h1>Sender Details</h1>
+            <div id="preview-image-border">
+                <img id="preview-image" src="#" alt="Preview">
+            </div>
+            <input type="file" id="image-upload" name="image-upload" accept="image/*">
+            <div class="input-group-y">
+                <label for="sender-first-name">First Name</label>
+                <input id="sender-first-name" name="sender-first-name" type="text" placeholder="First Name">
+            </div>
+            <div class="input-group-y">
+                <label for="sender-last-name">Last Name</label>
+                <input id="sender-last-name" name="sender-last-name" type="text" placeholder="Last Name">
+            </div>
+            <button class="page-switch-button next-button">Next</button>
+        </div>
+
+        <div class="form-page recipient-details">
+            <h1>Recipient Details</h1>
+            <div class="input-group-y">
+                <label for="recipient-first-name">First Name</label>
+                <input id="recipient-first-name" name="recipient-first-name" type="text" placeholder="First Name">
+            </div>
+            <div class="input-group-y">
+                <label for="recipient-last-name">Last Name</label>
+                <input id="recipient-last-name" name="recipient-last-name" type="text" placeholder="First Name">
+            </div>
+            <div class="input-group-y" id="message-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="enter message here..." rows="1"></textarea>
+            </div>
+
+            <div id="notify-area">
+                <h2>Notify Recipient</h2>
+                <div class="input-group-x">
+                    <input type="checkbox" id="email" name="notify-method" value="email">
+                    <label for="email">Email</label>
+                    <input type="text" id="sender-email" name="sender-email" placeholder="Email">
+                </div>
+                <div class="input-group-x">
+                    <input type="checkbox" id="sms" name="notify-method" value="sms">
+                    <label for="sms">SMS</label><br>
+                    <input type="text" id="sender-number" name="sender-number" placeholder="Phone Number">
+                </div>
+                <div class="input-group-x">
+                    <input type="checkbox" id="do-not-notify" name="notify-method" value="do-not-notify">
+                    <label for="do-not-notify">Do Not Notify</label>
+                </div>
+            </div>
+
+            <button class="page-switch-button back-button">Back</button>
+            <button class="page-switch-button next-button">Next</button>
+        </div>
+
+        <div class="form-page payment-details">
+            <h1>Payment Details</h1>
+
+            <div class="input-group-y">
+                <label for="card-type">Card Type</label>
+                <select id="card-type" name="card-type">
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="Amex">Amex</option>
+                </select>
+            </div>
+            <div class="input-group-y" id="card-number-group">
+                <label for="card-number">Card Number</label>
+                <input id="card-number" name="card-number" type="text">
+            </div>
+            <div class="input-group-y">
+                <label for="expiration">Expiration</label>
+                <input id="expiration" name="expiration" type="date">
+            </div>
+            <div class="input-group-y">
+                <label for="ccv">CCV</label>
+                <input id="ccv" name="ccv" type="password">
+            </div>
+            <div class="input-group-y">
+                <label for="amount">Amount</label>
+                <input id="amount" name="amount" type="text">
+            </div>
+            <div id="terms-group" class="input-group-x">
+                <input id="agree" name="agree" type="checkbox">
+                <label for="agree">I agree to the Terms and Conditions</label>
+            </div>
+            <button class="page-switch-button back-button">Back</button>
+            <input class="submit-button" type="submit">
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 100vw;
+    margin-top: -500vh;
+    transition: 2s;
+}
+
+.new-payment-button {
+    transition: 1s;
+    transition-delay: 1s;
+    visibility: hidden;
+    position: absolute;
+    top: 90vh;
+}
+
+.top-loaded-in {
+    margin-top: 0;
+}
+
+.bottom-loaded-in {
+    top: 80vh;
+    visibility: visible;
+}

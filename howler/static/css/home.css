@@ -1,0 +1,10 @@
+.username:hover {
+    /* couldn't figure out how to make this more specific than bootstrap without !important */
+    color: blue !important;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+h1:hover {
+    cursor: pointer;
+}
