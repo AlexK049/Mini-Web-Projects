@@ -40,3 +40,11 @@ services:
       - ./howler:/usr/src/app
     environment:
       - PORT=80
+
+  pet-profile:
+    build: ./pet-profile/frontend
+    restart: unless-stopped
+    volumes:
+      - ./pet-profile/frontend:/usr/src/app
+    environment:
+      - PORT=80

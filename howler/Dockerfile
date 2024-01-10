@@ -8,5 +8,4 @@ COPY . .
 
 ENV PORT 80
 
-# ENTRYPOINT [ "npm", "run", "dev" ]
 ENTRYPOINT [ "npm", "start"]
