@@ -23,7 +23,7 @@ const PetCard = ({ pet, canEdit, handleEdit, handleDelete }) => {
                 </p>
                 <div>
                     <button
-                        onClick={() => handleEdit(pet.pet_id)}
+                        onClick={() => handleEdit(pet.id)}
                         className={`${canEdit ? 'group-hover:visible' : ''} invisible m-1 px-3 py-2 text-l font-bold text-white rounded-lg bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 hover:from-gray-800 hover:via-gray-700 hover:to-gray-800`}
                     >✏️</button>
                     <button
@@ -102,57 +102,15 @@ const EditablePetCard = ({ pet, handleCancel, handleSave }) => {
     );
 };
 
-const PostCard = ({ post }) => {
-    return (
-        <div className="bg-white p-4 mb-4 rounded-md shadow-md">
-            <div className="flex items-center mb-4">
-                <img
-                    src={`/api/user/profile-picture/${post.user_id}`}
-                    alt="User Profile Pic"
-                    className="w-10 h-10 rounded-full mr-2"
-                />
-                <div>
-                    <div className="font-bold">
-                        {post.first_name} {post.last_name} with {post.pet}
-                    </div>
-                    <div className="text-gray-600">@{post.username}</div>
-                </div>
-            </div>
-
-            <div className="mb-4 text-center">
-                <div className="font-bold">
-                    {post.caption}
-                </div>
-                {post.media && (
-                    <img
-                        src={`/api/feed/picture/${post.post_id}`}
-                        alt="Post Media"
-                        className="w-full h-40 object-cover mb-2 rounded-md"
-                    />
-                )}
-                <p>{post.text}</p>
-            </div>
-
-            {post.group_name && (
-                <div className="text-sm text-gray-500 ml-auto">
-                    in group: {post.group_name}
-                </div>
-            )}
-        </div>
-    )
-}
-
 const Profile = () => {
     const [currentlyEditingPet, setCurrentlyEditingPet] = useState(null);
     const [addingNewPet, setAddingNewPet] = useState(false);
 
     const [pets, setPets] = useState([]);
-    const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState({});
 
-    const [pfpUrl, setPfpUrl] = useState('');
-    const [imageBlob, setImageBlob] = useState([]);
     const [isEditingProfile, setIsEditingProfile] = useState(false);
+    const [pfpUrl, setPfpUrl] = useState('');
 
     //{ isError: boolean, errorMsg: string }, errorMsg only required if isError is true
     const [error, setError] = useState({ isError: false, errorMsg: "" });
@@ -163,60 +121,8 @@ const Profile = () => {
 
         const fetchData = async () => {
             try {
-                const userResponse = await fetch("/api/user/current", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                if (!userResponse.ok) {
-                    throw new Error("Could not load user details.");
-                }
-                const userData = await userResponse.json();
-                setUser(userData);
-
-                const pfpResponse = await fetch(`/api/user/profile-picture/${userData.user_id}`);
-                if (!pfpResponse.ok && pfpResponse.status != 404) {
-                    throw new Error("Could not load user profile picture.");
-                } else if (pfpResponse.status != 404) {
-                    const imgData = await pfpResponse.blob();
-                    const url = URL.createObjectURL(new Blob([imgData]));
-                    setImageBlob(url);
-                    const mediaData = imgData.data;
-                    const mimeType = imgData.type;
-                    const mediaBlob = new Blob([new Uint8Array(mediaData)], { type: mimeType });
-                    const dataURL = URL.createObjectURL(mediaBlob);
-                    setPfpUrl(dataURL);
-                }
-
-                const petResponse = await fetch("/api/pets", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                if (!petResponse.ok) {
-                    throw new Error("Could not load pets.");
-                }
-
-                const petData = await petResponse.json();
-                setPets(petData);
-
-                const postResponse = await fetch("/api/posts", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                if (!postResponse.ok) {
-                    throw new Error("Could not load pets.");
-                }
-
-                const postData = await postResponse.json();
-                setPosts(postData);
+                setUser({ firstName: "Alex", lastName: "Kadlof", username: "AlexKadlof" });
+                setPets([{ id: 1, name: "Joey", type: "Dog", birthday: "2015-03-15T00:00:00", bio: "loves cats even though he is allergic!" }]);
             } catch (error) {
                 setError({ isError: true, errorMsg: error.message });
             }
@@ -235,48 +141,26 @@ const Profile = () => {
 
     async function handleDelete(pet) {
         try {
-            const res = await fetch(`/api/pets/${pet.pet_id}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-
-            if (res.ok) {
-                //if successful delete the pet from the array to update ui
-                setPets(pets => pets.filter(p => p.pet_id !== pet.pet_id));
-            } else {
-                throw new Error("Could not delete pet.")
-            }
+            //http req here
+            //...
+            //if successful delete the pet in the array to update ui
+            setPets(pets => pets.filter(p => p.id !== pet.id));
         } catch (error) {
             setError({ isError: true, errorMsg: error.message })
         }
     }
 
     async function handleUpdate(pet) {
-        //send put request
         try {
-            const res = await fetch(`/api/pets/${pet.pet_id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    pet: pet
-                })
-            });
-
-            if (res.ok) {
-                //if successful update the pet in the array to update ui
-                setPets(pets => pets.map(p => {
-                    if (p.pet_id === pet.pet_id) {
-                        return pet;
-                    }
-                    return p;
-                }));
-            } else {
-                throw new Error("Could not update pet.")
-            }
+            //http req here
+            //...
+            //if successful update the pet in the array to update ui
+            setPets(pets => pets.map(p => {
+                if (p.id === pet.id) {
+                    return pet;
+                }
+                return p;
+            }));
         } catch (error) {
             setError({ isError: true, errorMsg: error.message })
         }
@@ -288,23 +172,13 @@ const Profile = () => {
     async function handleAddNewPet(pet) {
         //send post request
         try {
-            const res = await fetch(`/api/pets`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    pet: pet
-                })
-            });
-
-            if (res.ok) {
-                const newPet = await res.json();
-                //if successful update the pet in the array to update ui
-                setPets(pets => [newPet, ...pets]);
-            } else {
-                throw new Error("Could not add new pet.")
-            }
+            //send http req
+            //...
+            //to simulate backend generating id, lets just get the max id so far, and add 1 to it.
+            const newId = pets.reduce((prev, current) => (prev.value > current.value) ? prev : current) + 1;
+            pet.id = newId;
+            //if successful update the pet in the array to update ui
+            setPets(pets => [pet, ...pets]);
         } catch (error) {
             setError({ isError: true, errorMsg: error.message })
         }
@@ -316,31 +190,15 @@ const Profile = () => {
     const handleMedia = (event) => {
         const file = event.target.files[0];
 
-        if (file) {
-            if (file.type === "image/jpeg" || file.type === "image/png") {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    const imageBlob = new Blob([reader.result], { type: file.type });
-                    setImageBlob(imageBlob);
-                    const url = URL.createObjectURL(new Blob([imageBlob]));
-                    setPfpUrl(url);
-                };
-                reader.readAsArrayBuffer(file);
-            }
+        if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
+            const imageUrl = URL.createObjectURL(file);
+            setPfpUrl(imageUrl);
+            handleSaveProfile();
         }
     };
 
     async function handleSaveProfile() {
-        const formData = new FormData();
-        formData.append("file", imageBlob);
         try {
-            const res = await fetch(`/api/user/profile-picture`, {
-                method: "PUT",
-                body: formData
-            });
-            if (!res.ok) {
-                throw new Error("Could not edit profile picture.")
-            }
             setIsEditingProfile(false);
         } catch (error) {
             setError({ isError: true, errorMsg: error.message })
@@ -348,7 +206,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="grid grid-cols-3 lg:grid-cols-4 h-screen">
+        <div className="grid grid-cols-3 lg:grid-cols-4 h-screen bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">
             <div className="col-span-1 flex flex-col items-center mt-[15vh] gap-2">
                 <div className="rounded-full bg-gray-600 h-40 w-40 relative">
                     {
@@ -356,7 +214,7 @@ const Profile = () => {
                             <div className="h-full w-full flex items-center justify-center">
                                 <input
                                     type="file"
-                                    onChange={(e) => handleMedia(e)}
+                                    onChange={handleMedia}
                                     className="text-lg opacity-0 absolute inset-0 cursor-pointer"
                                     accept=".jpeg, .jpg, .png"
                                 />
@@ -366,7 +224,7 @@ const Profile = () => {
                             </div>
                             :
                             pfpUrl ?
-                                <img src={pfpUrl} className="text-center h-full w-full object-cover rounded-full" />
+                                <img src={pfpUrl} alt="profile" className="text-center h-full w-full object-cover rounded-full" />
                                 :
                                 <div className="p-1 text-center h-full w-full flex items-center justify-center text-gray-300 text-xl">
                                     No Profile Picture
@@ -374,7 +232,7 @@ const Profile = () => {
                     }
                 </div>
                 <div className="bg-gray-100 p-2 text-xl font-bold border-2 border-gray-900 rounded-lg drop-shadow-lg">
-                    {user.first_name} {user.last_name}
+                    {user.firstName} {user.lastName}
                 </div>
                 <div className="bg-gray-100 p-2 text-xl font-bold border-2 border-gray-900 rounded-lg drop-shadow-lg">
                     @{user.username}
@@ -405,10 +263,10 @@ const Profile = () => {
                         {
                             pets.length > 0 ?
                                 pets.map(pet => {
-                                    if (pet.pet_id === currentlyEditingPet) {
-                                        return <EditablePetCard key={pet.pet_id} pet={pet} handleCancel={handleCancelEdit} handleSave={handleUpdate} />
+                                    if (pet.id === currentlyEditingPet) {
+                                        return <EditablePetCard key={pet.id} pet={pet} handleCancel={handleCancelEdit} handleSave={handleUpdate} />
                                     } else {
-                                        return <PetCard key={pet.pet_id} pet={pet} handleEdit={handleEdit} handleDelete={handleDelete} canEdit={currentlyEditingPet === null} />
+                                        return <PetCard key={pet.id} pet={pet} handleEdit={handleEdit} handleDelete={handleDelete} canEdit={currentlyEditingPet === null} />
                                     }
                                 })
                                 :
@@ -416,17 +274,6 @@ const Profile = () => {
                                     <div className="text-gray-600 italic">no pets</div>
                                     :
                                     ''
-                        }
-                    </div>
-                    <div className="m-5">
-                        <div className="text-xl font-bold flex justify-between border-b-4 border-gray-300 mb-3">
-                            Posts
-                        </div>
-                        {
-                            posts.length > 0 ?
-                                posts.map(post => <PostCard key={post.post_id} post={post} />)
-                                :
-                                <div className="text-gray-600 italic">no posts</div>
                         }
                     </div>
                 </div>

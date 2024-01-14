@@ -3,16 +3,16 @@ services:
     image: nginx:latest
     restart: unless-stopped
     volumes:
-      - ./proxy/default.conf.template:/etc/nginx/templates/default.conf.template
+      - ./proxy/nginx.conf:/etc/nginx/templates/default.conf.template
     ports:
-      - "80:80"
+      - 80:80
 
   landing:
     image: httpd:latest
     restart: unless-stopped
     volumes:
       - ./landing:/usr/local/apache2/htdocs
-      
+
   static-sites:
     image: httpd:latest
     restart: unless-stopped
@@ -24,27 +24,21 @@ services:
     restart: unless-stopped
     volumes:
       - ./calculator:/usr/local/apache2/htdocs
-      
+
   payment-app:
     build: ./payment-app
     restart: unless-stopped
-    volumes:
-      - ./payment-app:/usr/src/app
     environment:
       - PORT=80
-      
+
   howler:
     build: ./howler
     restart: unless-stopped
-    volumes:
-      - ./howler:/usr/src/app
     environment:
       - PORT=80
 
   pet-profile:
-    build: ./pet-profile/frontend
+    build: ./pet-profile
     restart: unless-stopped
-    volumes:
-      - ./pet-profile/frontend:/usr/src/app
-    environment:
-      - PORT=80
+    ports:
+      - 3000:3000

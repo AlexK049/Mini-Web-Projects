@@ -1,0 +1,30 @@
+{
+  "short_name": "PetNet",
+  "name": "PetNet",
+  "icons": [
+    {
+      "src": "dog-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "dog-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "dog-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "dog-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
