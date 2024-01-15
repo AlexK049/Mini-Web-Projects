@@ -89,18 +89,15 @@ aside {
 #navbar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 90vh;
 }
 
 #navbar>nav {
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-gutter: stable;
-}
-
-#navbar>nav:hover {
-    overflow-y: visible;
+    /* this padding is necessary so that it appears that the footer
+    is interacting with this and causing the scroll to appear */
+    padding-bottom: 90px;
 }
 
 #navbar a {
@@ -120,8 +117,10 @@ aside a:hover {
 
 #footer {
     border-top: 1px solid var(--main-bg-color);
-    bottom: 0;
     flex: 0;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--aside-bg-color);
 }
 
 /*#endregion*/
@@ -132,7 +131,7 @@ header {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    height: 10vh;
+    height: 60px;
     background-color: var(--header-bg-color);
     color: var(--header-fg-color);
     border-bottom: 2px solid var(--main-bg-color);
