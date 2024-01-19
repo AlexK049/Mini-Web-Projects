@@ -72,8 +72,12 @@ body {
 }
 
 .card-img {
-    max-width: 100%;
-    max-height: auto;
+    max-height: 600px;
+    max-width: auto;
+}
+
+.technologies-used {
+    display: flex;
 }
 
 /* #endregion */
