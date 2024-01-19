@@ -11,8 +11,15 @@
 </head>
 
 <body>
+    <header>
+        <h1>Mini Web Projects Gallery</h1>
+        <h2>by: Alex Kadlof</h2>
+        <h3>Scroll through the gallery with the arrows, click on a card to navigate to that mini project. To get back to this page, use your browser's back button.</h3>
+    </header>
     <div id="carousel">
-        <button id="scroll-cards-left" onclick="scrollContent('left')">&lt;</button>
+        <button id="scroll-cards-left" class="scroll-cards-btn" onclick="scrollContent('left')">
+            <img src="images/left-67.png"/>
+        </button>
         <div id="carousel-cards">
             <div class="card">
                 <a href="/static-sites/dashboard/dashboard.html">
@@ -55,7 +62,7 @@
                 </a>
             </div>
             <div class="card">
-                <a href="/pet-profile" onclick="javascript:event.target.port=3000">
+                <a href="http://localhost:3000/pet-profile">
                     <div class="card-header">Pet Profile</div>
                     <img class="card-img" src="images/pet-profile.png" alt="pet profile">
                     <div class="card-description"></div>
@@ -63,7 +70,9 @@
                 </a>
             </div>
         </div>
-        <button id="scroll-cards-right" onclick="scrollContent('right')">&gt;</button>
+        <button id="scroll-cards-right" class="scroll-cards-btn" onclick="scrollContent('right')">
+            <img src="images/right-67.png"/>
+        </button>
     </div>
 
 </body>
