@@ -1,0 +1,42 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+#carousel-cards {
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 80vw;
+    position: relative;
+}
+
+.card {
+    border: solid 1px black;
+    height: 400px;
+    width: 350px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.card>a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.card-img {
+    max-width: 100%;
+    max-height: auto;
+}
