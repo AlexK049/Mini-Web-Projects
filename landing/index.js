@@ -1,4 +1,4 @@
-const SCROLL_AMOUNT = 550;
+const SCROLL_AMOUNT = 450;
 const NUM_CARDS = 6;
 
 let activeCardIndex = 0;

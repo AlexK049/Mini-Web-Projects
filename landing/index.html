@@ -12,10 +12,14 @@
 
 <body>
     <header>
-        <h1>Mini Web Projects Gallery</h1>
-        <h2>by: Alex Kadlof</h2>
-        <h3>Scroll through the gallery with the arrows, click on a card to navigate to that mini project. To get back to this page, use your browser's back button.</h3>
+        <div id="accent-separator"><div></div></div>
+        <div>
+            <h1>Mini Web Projects</h1>
+            <h2>by: Alex Kadlof</h2>
+        </div>
     </header>
+    <h3>Gallery</h3> 
+    <h4>Scroll through the gallery with the arrows, click on a card to navigate to that mini project. To get back to this page, use your browser's back button.</h3>
     <div id="carousel">
         <button id="scroll-cards-left" class="scroll-cards-btn" onclick="scrollContent('left')">
             <img src="images/left-67.png"/>
@@ -23,8 +27,8 @@
         <div id="carousel-cards">
             <div class="card">
                 <a href="/static-sites/dashboard/dashboard.html">
-                    <div class="card-header">Dashboard</div>
                     <img class="card-img" src="images/dashboard.png" alt="dashboard">
+                    <div class="card-header">Dashboard</div>
                     <div class="card-description">A dashboard with existing html styled with plain css, no modifications to the html file.</div>
                     <div class="technologies-used">
                         <div>html</div>
@@ -34,8 +38,8 @@
             </div>
             <div class="card">
                 <a href="/static-sites/news-site-landing/landing.html">
-                    <div class="card-header">News Site Landing</div>
                     <img class="card-img" src="images/news-site-landing.png" alt="news site landing">
+                    <div class="card-header">News Site Landing</div>
                     <div class="card-description">Static newspaper website with a focus on layout and composition.</div>
                     <div class="technologies-used">
                         <div>html</div>
@@ -45,8 +49,8 @@
             </div>
             <div class="card">
                 <a href="/calculator">
-                    <div class="card-header">Calculator</div>
                     <img class="card-img" src="images/calculator.png" alt="calculator">
+                    <div class="card-header">Calculator</div>
                     <div class="card-description">Web calculator that supports basic operators, order of operations, error handling, and history.</div>
                     <div class="technologies-used">
                         <div>html</div>
@@ -57,8 +61,8 @@
             </div>
             <div class="card">
                 <a href="/payment-app">
-                    <div class="card-header">Payment App</div>
                     <img class="card-img" src="images/payment-app.png" alt="payment app">
+                    <div class="card-header">Payment App</div>
                     <div class="card-description">A dynamic validated form app with image upload and a simple backend.</div>
                     <div class="technologies-used">
                         <div>html</div>
@@ -70,9 +74,9 @@
             </div>
             <div class="card">
                 <a href="/howler">
-                    <div class="card-header">Twitter Clone</div>
                     <img class="card-img" src="images/twitter-clone.png" alt="twitter-clone">
-                    <div class="card-description">Social media app reminiscient of twitter. Authentication with salting/hashing and sessions with JWTs. Fully functional backend. Instructions on how to login are present in the README. One login is: username: student, password: 1.</div>
+                    <div class="card-header">Twitter Clone</div>
+                    <div class="card-description">Client side rendered social media app reminiscient of X (Twitter). Authentication with salting/hashing and sessions with a custom JWT implementation. Fully functional backend with REST API. Instructions on how to login are present in the README. One login is: username: student, password: 1.</div>
                     <div class="technologies-used">
                         <div>html</div>
                         <div>bootstrap</div>
@@ -84,8 +88,8 @@
             </div>
             <div class="card">
                 <a href="http://localhost:3000/pet-profile">
-                    <div class="card-header">Pet Profile</div>
                     <img class="card-img" src="images/pet-profile.png" alt="pet profile">
+                    <div class="card-header">Pet Profile</div>
                     <div class="card-description">Dynamic profile page with mock data.</div>
                     <div class="technologies-used">
                         <div>react</div>
