@@ -1,4 +1,3 @@
-const SCROLL_AMOUNT = 450;
 const NUM_CARDS = 6;
 
 let activeCardIndex = 0;
@@ -11,13 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function scrollContent(direction) {
     const scrollableContent = document.getElementById("carousel-cards");
+    const cardWidth = document.querySelector(".card").offsetWidth;
+    console.log(cardWidth)
     if (direction === "left") {
-        scrollableContent.scrollLeft -= SCROLL_AMOUNT;
+        scrollableContent.scrollLeft -= cardWidth;
         if (activeCardIndex > 0) {
             activeCardIndex--;
         }
     } else if (direction === "right") {
-        scrollableContent.scrollLeft += SCROLL_AMOUNT;
+        scrollableContent.scrollLeft += cardWidth;
         if (activeCardIndex < NUM_CARDS - 1) {
             activeCardIndex++;
         }

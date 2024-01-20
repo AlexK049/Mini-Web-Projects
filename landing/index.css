@@ -1,10 +1,12 @@
 html,
 body {
     height: 100%;
+    color: #333;
 }
 
 body {
     margin: 0;
+    background-image: linear-gradient(180deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 /* #region header */
@@ -22,10 +24,13 @@ header>div {
 
 header h1 {
     margin: 0;
+    font-size: 22px;
 }
 
 header h2 {
-    margin: 0 0 0 25px
+    margin: 0;
+    font-size: 18px;
+    color: #555;
 }
 
 header h3 {
@@ -34,7 +39,9 @@ header h3 {
 }
 
 #accent-separator {
-    background: linear-gradient(to bottom, #fc5c7d, #6a82fb);
+    /* background: linear-gradient(to bottom, #fc5c7d, #6a82fb); */
+    /* background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%); */
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
     border-radius: 16px;
     width: 20px;
     position: relative;
@@ -49,12 +56,24 @@ header h3 {
 
 /* #endregion */
 
+#page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 /* the carousel has the cards and the buttons */
 #carousel {
     display: flex;
+    align-items: center;
+    gap: 4px;
     overflow: hidden;
     width: 80vw;
-    margin: auto;
+    margin: 5px auto;
 }
 
 /* this contains just the cards */
@@ -63,8 +82,8 @@ header h3 {
     scroll-behavior: smooth;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* #region scroll buttons */
@@ -72,10 +91,15 @@ header h3 {
     border: none;
     cursor: pointer;
     visibility: hidden;
-
+    height: 120px;
     background-color: #f5f5f5;
-    border-radius: 5px;
+    border-radius: 35px;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.scroll-cards-btn>img {
+    height: 30px;
+    width: auto;
 }
 
 .scroll-cards-btn:hover {
@@ -90,8 +114,11 @@ header h3 {
 
 /* #region card styles */
 .card {
-    background-color: white;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     display: inline-block;
+    width: 32vw;
+    border-radius: 20px;
     margin: 0px -30px;
     scroll-snap-align: center;
     transition: 0.3s;
@@ -119,8 +146,8 @@ header h3 {
 }
 
 .card-img {
-    max-height: 600px;
-    max-width: auto;
+    max-height: auto;
+    max-width: 32vw;
     border-radius: 20px;
 }
 
@@ -131,10 +158,51 @@ header h3 {
 
 .card-description {
     margin-left: 15px;
+    text-wrap: wrap;
+    max-width: 100%;
+    height: 40px;
 }
 
 .technologies-used {
     display: flex;
+    gap: 4px;
+    margin: 5px 20px;
+    right: 0
+}
+
+.technologies-used>div {
+    padding: 2px;
+    color: white;
+    font-weight: 600;
+    border-radius: 2px;
+}
+
+.html {
+    background-color: #E44D26;
+}
+
+.css {
+    background-color: #1572B6;
+}
+
+.js {
+    background-color: #F0DB4F;
+}
+
+.express {
+    background-color: #000000;
+}
+
+.react {
+    background-color: #61DAFB;
+}
+
+.bootstrap {
+    background-color: #7952B3;
+}
+
+.tailwind {
+    background-color: #38B2AC;
 }
 
 /* #endregion */
