@@ -7,21 +7,26 @@ This repository hosts a collection of web projects I created in some of my under
 Prerequisites: Docker and Git are installed.
 
 1. Clone the repository
-2. From the root project directory, navigate to the `/howler` directory, and create a `.env` file using the `.env_sample` file as a template.
+2. From the root project directory, navigate to the `./howler` directory, and create a `.env` file using the `.env_sample` file as a template.
 3. Generate a secret key (random string of characters) to fill in as the `JWT_SECRET_KEY` environment variable in the newly created `.env` file.
 4. Navigate to the root project directory and run the following command in your terminal: `docker compose up -d --build`
 5. All the projects will now be viewable on localhost (port 80)
 
 # Project Guide
 
-## Static Dashboard
-
-## Static News Site Landing
-
+## Dashboard
+For this project, an HTML file was given with some preset classes and id's. Without touching the HTML file, it was styled to present the information in a more digestible way.
+## News Site Landing
+A static new site with a header, some quick links, and a list of top articles to read. Made with HTML and CSS.
 ## Calculator
-
+A calculator with simple operators, order of operations (supported internally by a state machine), error handling, and history.
 ## Payment App
-
+A payment app which uses an HTML form to collect, validate, and submit payment information between two users. Styled to have a multi-page appearance.
 ## Twitter Clone
+Client side rendered social media app with some features reminiscent of X (formerly known as Twitter). Includes authentication which salts and hashes user passwords, maintains user sessions with JWTs and has a REST API which allows for dynamic content.
 
+The logins for all the users are present in the `./howler/src/data/usersUnhashed.json` file. An example login is using `student` as the username, and `1` as the password.
+
+To ensure sure this project functions correctly, make sure to follow the instructions in the [startup guide](#startup-guide)
 ## Pet Profile
+This is a profile page built for a larger social media app. The frontend is built with React and Tailwind, and contains areas where requests to a backend can be made and processed. It is currently set up with some mock data, and allows for the entry of new data with the caveat being that it is not persisted between sessions.
