@@ -154,6 +154,7 @@ header h3 {
 .card-header {
     font-size: 20px;
     margin-left: 15px;
+    font-weight: bold;
 }
 
 .card-description {
