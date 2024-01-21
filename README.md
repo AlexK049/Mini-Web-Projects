@@ -1,6 +1,17 @@
 # Mini Web Projects
 
+https://github.com/AlexK049/Mini-Web-Projects/assets/90426111/245fa5fc-31e8-4dfc-b71c-6040dc0635d0
+
 This repository hosts a collection of web projects I created in some of my undergraduate classes. These projects helped me build a strong foundation in web development using HTML, CSS, JS, and an Express.js backend. The skills I learned creating these projects have made it easy for me to learn web frameworks such as React and Angular. It also helped me understand why these frameworks exist and made me appreciate them more. The extensive use of CSS in these projects also made me feel very comfortable with styling to fit a variety of different designs, and with picking up things like Bootstrap and Tailwind.
+
+1. [Startup Guide](#startup-guide)
+2. [Project Guide](#project-guide)
+   - [Dashboard](#dashboard)
+   - [News Site Landing](#news-site-landing)
+   - [Calculator](#calculator)
+   - [Payment App](#payment-app)
+   - [Twitter Clone](#twitter-clone)
+   - [Pet Profile](#pet-profile)
 
 # Startup Guide
 
